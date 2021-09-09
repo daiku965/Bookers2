@@ -55,6 +55,9 @@
               <td>
                 <%= @book.body %>
               </td>
+              <td>
+                <%= link_to "Edit", edit_book_path(@book.id), class:'btn btn-sm btn-success' %>
+              </td>
             </tr>
           </tbody>
         </table>
