@@ -10,6 +10,11 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
+  def show
+    @book = Book.find(params[:id])
+    @user = @book.user
+  end
+
   private
 
   def book_params
