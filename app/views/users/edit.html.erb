@@ -4,6 +4,9 @@
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 max-auto">
         <h2>User info</h2>
+        <% if @user.errors.any? %>
+          <%= render 'layouts/error', variable: @user %>
+        <% end %>
         <%= form_with model: @user, local: true do |f| %>
           <div class="form-group">
             <%= f.label :name %>

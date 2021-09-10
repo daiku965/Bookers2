@@ -1,9 +1,14 @@
 <div id="error_explanation">
   <h3>
-    <%= @book.errors.count %> errors prohibited this obj from being saved:
+    <%= variable.errors.count %>
+    <% if variable.errors.count == 1 %>
+     error prohibited this obj from being saved:
+    <% else %>
+     errors prohibited this obj from being saved:
+    <% end %>
   </h3>
   <ul>
-    <% @book.errors.full_messages.each do |message| %>
+    <% variable.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul>

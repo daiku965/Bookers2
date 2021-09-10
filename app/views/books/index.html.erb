@@ -2,7 +2,7 @@
   <%= render 'layouts/notification' %>
   <div class="container mt-3 px-5 px-sm-0">
     <% if @book.errors.any? %>
-      <%= render 'layouts/error' %>
+      <%= render 'layouts/error', variable: @book %>
     <% end %>
     <div class="row">
 
