@@ -1,6 +1,9 @@
 <main>
   <%= render 'layouts/notification' %>
-  <div class="container px-5 px-sm-0">
+  <div class="container mt-3 px-5 px-sm-0">
+    <% if @book.errors.any? %>
+      <%= render 'layouts/error' %>
+    <% end %>
     <div class="row">
 
       <%= render 'layouts/sidebar', user: @user %>
