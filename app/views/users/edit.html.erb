@@ -1,30 +1,25 @@
-<main>
-  <p id="notice"></p>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 max-auto">
-        <h2>User info</h2>
-        <% if @user.errors.any? %>
-          <%= render 'layouts/error', variable: @user %>
-        <% end %>
-        <%= form_with model: @user, local: true do |f| %>
-          <div class="form-group">
-            <%= f.label :name %>
-            <%= f.text_field :name, class: 'form-control user_name' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :image %>
-            <%= f.attachment_field :profile_image, class: 'form-control-file user_image' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :instroduction %>
-            <%= f.text_area :introduction, class: 'form-control introduction' %>
-          </div>
-          <div class="form-group">
-            <%= f.submit 'Update User', class: 'btn btn-secondary' %>
-          </div>
-        <% end %>
-      </div>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 max-auto">
+      <h2>User info</h2>
+      <%= render 'layouts/errors', obj: @user %>
+      <%= form_with model: @user, local: true do |f| %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control user_name' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :image %>
+          <%= f.attachment_field :profile_image, class: 'form-control-file user_image' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :instroduction %>
+          <%= f.text_area :introduction, class: 'form-control introduction' %>
+        </div>
+        <div class="form-group">
+          <%= f.submit class: 'btn btn-secondary' %>
+        </div>
+      <% end %>
     </div>
   </div>
-</main>
+  </div>
