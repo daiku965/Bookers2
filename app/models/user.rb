@@ -28,4 +28,16 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
+
+  def self.search_for(keyword, method)
+    if method == 'exact'
+      User.where(name: keyword)
+    elsif method == 'forward'
+      User.where('name LIKE ?', keyword+'%')
+    elsif method == 'backward'
+      User.where('name LIKE ?', '%'+keyword)
+    else
+      User.where('name LIKE ?', '%'+keyword+'%')
+    end
+  end
 end
