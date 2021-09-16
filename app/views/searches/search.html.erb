@@ -1,0 +1,6 @@
+<h2><%= @model %>s search for "<%= @keyword %>"</h2>
+<% if @model == "User" %>
+  <%= render 'users/index', users: @records %>
+<% else %>
+  <%= render 'books/index', books: @records %>
+<% end %>
