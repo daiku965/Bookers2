@@ -1,4 +1,6 @@
-class BookCommentsController < ApplicationController
+class BookCommentsController < ApplicationControll
+  before_action :authenticate_user!
+
   def create
     book = Book.find(params[:book_id])
     book_comment = current_user.book_comments.new(book_comment_params)
