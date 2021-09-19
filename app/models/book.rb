@@ -21,4 +21,17 @@ class Book < ApplicationRecord
       Book.where('title LIKE ?', '%'+keyword+'%')
     end
   end
+
+  scope :created_today, -> { where(created_at: Time.zone.now.all_day).count }
+  scope :created_yesterday, -> { where(created_at: 1.day.ago.all_day).count }
+  scope :created_this_week, -> { where(created_at: Time.zone.now.all_week).count }
+  scope :created_last_week, -> { where(created_at: Time.zone.now.prev_week.all_week).count }
+
+  def self.post_ratio(created_current, created_past)
+    if created_past == 0
+      0
+    else
+      created_current / created_past * 100
+    end
+  end
 end

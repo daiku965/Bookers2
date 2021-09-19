@@ -1,0 +1,32 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>今日の投稿数</th>
+      <th>前日の投稿数</th>
+      <th>前日比</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= books.created_today %></td>
+      <td><%= books.created_yesterday %></td>
+      <td><%= Book.post_ratio(books.created_today, books.created_yesterday) %>%</td>
+    </tr>
+  </tbody>
+</table>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>今週の投稿数</th>
+      <th>前週の投稿数</th>
+      <th>前週比</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= books.created_this_week %></td>
+      <td><%= books.created_last_week %></td>
+      <td><%= Book.post_ratio(books.created_this_week, books.created_last_week) %>%</td>
+    </tr>
+  </tbody>
+</table>
